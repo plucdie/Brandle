@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Brandle</title>
+	<meta name="description" content="Brandle version 0.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+	<div id="cabeza">
+		<h1>THE DAILY BRAND</h1>
+	</div>
+	<div id="casillas">
+		<div id="fila1">
+			<div id="cas11"></div>
+			<div id="cas12"></div>
+			<div id="cas13"></div>
+			<div id="cas14"></div>
+			<div id="cas15"></div>
+		</div>
+		<div id="fila2">
+			<div id="cas21"></div>
+			<div id="cas22"></div>
+			<div id="cas23"></div>
+			<div id="cas24"></div>
+			<div id="cas25"></div>
+		</div>
+		<div id="fila3">
+			<div id="cas31"></div>
+			<div id="cas32"></div>
+			<div id="cas33"></div>
+			<div id="cas34"></div>
+			<div id="cas35"></div>
+		</div>
+		<div id="fila4">
+			<div id="cas41"></div>
+			<div id="cas42"></div>
+			<div id="cas43"></div>
+			<div id="cas44"></div>
+			<div id="cas45"></div>
+		</div>
+		<div id="fila5">
+			<div id="cas51"></div>
+			<div id="cas52"></div>
+			<div id="cas53"></div>
+			<div id="cas54"></div>
+			<div id="cas55"></div>
+		</div>
+		<div id="fila6">
+			<div id="cas61"></div>
+			<div id="cas62"></div>
+			<div id="cas63"></div>
+			<div id="cas64"></div>
+			<div id="cas65"></div>
+		</div>
+	</div>
+	<div id="teclas">
+		<label for="name">What's your name?</label><br>
+		<br>
+		<input id="name" type="text"><br>
+		<br>
+		<label for="guess">Which will be today's brand? Try your guess...(no capitals)</label><br>
+		<br>
+		<input id="guess" type="text"><br>
+		<br>
+		<button onclick="send()">SEND</button>
+		<script>
+			function send(){
+				var name=document.getElementById("name").value
+				localStorage.setItem("user",name)
+				var brands=['cupra','bimbo','fanta','mahou','volvo']
+				var minimo=0;
+				var maximo=brands.length;
+				var randomNumber=Math.floor(Math.random() * (maximo -1 - minimo + 1) + minimo);
+				var brand=brands[randomNumber];
+				var guess=document.getElementById("guess").value
+				var name=localStorage.getItem("user")
+				if (brand==guess.toLowerCase())
+					{alert("Correct, good job "+name)}
+				else
+					{alert("Incorrect, it was "+brand+". Nice try "+name)}
+			}
+		</script>
+	</div>
+</body>
+
+</html>
